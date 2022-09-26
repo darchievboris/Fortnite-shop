@@ -5,6 +5,7 @@ const Alert = ({name = '', closeAlert = Function.prototype}) => {
     useEffect(() => {
         const timerId = setTimeout(closeAlert, 3000)
         return ()=>{
+            // eslint-disable-next-line
             clearTimeout(timerId)
         }
     }, [name])
