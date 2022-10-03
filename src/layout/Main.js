@@ -6,7 +6,6 @@ import Cart from "../components/Cart";
 import BasketList from "../components/BasketList";
 import Alert from "../components/Alert";
 
-
 function Main() {
     const [goods, setGoods] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
@@ -43,33 +42,33 @@ function Main() {
         setIsBasketShow(!isBasketShow)
     }
 
-    const incQuantity = (id) =>{
+    const incQuantity = (id) => {
         const indexOrder = order.findIndex(el => el.id === id)
-        const newOrder = order.map((el,index) =>{
-            if(index ===indexOrder){
-                return {...el, quantity: el.quantity+1}
+        const newOrder = order.map((el, index) => {
+            if (index === indexOrder) {
+                return {...el, quantity: el.quantity + 1}
             }
             return el
         })
         setOrder(newOrder)
     }
 
-    const decQuantity = (id) =>{
+    const decQuantity = (id) => {
         const indexOrder = order.findIndex(el => el.id === id)
         let newOrder = []
-        if(order[indexOrder].quantity === 1){
+        if (order[indexOrder].quantity === 1) {
             newOrder = order.filter(el => el.id !== id)
-        }else{
-            newOrder = order.map((el,index)=>{
-                if(index === indexOrder){
-                    return {...el, quantity: el.quantity-1}
+        } else {
+            newOrder = order.map((el, index) => {
+                if (index === indexOrder) {
+                    return {...el, quantity: el.quantity - 1}
                 }
                 return el
             })
         }
         setOrder(newOrder)
     }
-    const closeAlert = ()=>{
+    const closeAlert = () => {
         setAlertName('')
     }
 
